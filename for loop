@@ -1,0 +1,45 @@
+using Microsoft.VisualBasic;
+using System.ComponentModel;
+using System.Net.NetworkInformation;
+using System.Reflection.Metadata;
+using System;
+
+namespace week_2_challenge__3_kim
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string correctUserId = "test1";
+            string correctPassword = "password1";
+            int maxAttempts = 3;
+            int attempts = 0;
+
+            while (attempts < maxAttempts)
+            {
+                Console.Write("Enter username: ");
+                string userId = Console.ReadLine();
+
+                Console.Write("Enter password: ");
+                string password = Console.ReadLine();
+
+                if (userId == correctUserId && password == correctPassword)
+                {
+                    Console.WriteLine("Login successful!");
+                    break;
+                }
+                else
+                {
+                    attempts++;
+                    Console.WriteLine($"Incorrect credentials. Attempts remaining: {maxAttempts - attempts}");
+                }
+            }
+
+            if (attempts >= maxAttempts)
+            {
+                Console.WriteLine("Login failed. Too many unsuccessful attempts.");
+            }
+        }
+    }
+}
