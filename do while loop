@@ -1,0 +1,42 @@
+namespace week_3_challenge___3_do_while_loop
+{
+    using System;
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string correctUserId = "test1";
+            string correctPassword = "password1";
+            int maxAttempts = 3;
+            int attempts = 0;
+
+            do
+            {
+                Console.Write("Enter username: ");
+                string userId = Console.ReadLine();
+
+                Console.Write("Enter password: ");
+                string password = Console.ReadLine();
+
+                if (userId == correctUserId && password == correctPassword)
+                {
+                    Console.WriteLine("Login successful!");
+                    break;
+                }
+                else
+                {
+                    attempts++;
+                    Console.WriteLine($"Incorrect credentials. Attempts remaining: {maxAttempts - attempts}");
+                }
+            } while (attempts < maxAttempts);
+
+            if (attempts >= maxAttempts)
+            {
+                Console.WriteLine("Login failed. Too many unsuccessful attempts.");
+            }
+        }
+    }
+
+}
+
